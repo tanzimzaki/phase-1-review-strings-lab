@@ -8,8 +8,8 @@
 
 ## Introduction
 
-For this lab, you've just been onboarded to the dev team working on Flatbook,
-the world's premier Flatiron School-based social network. At the moment, the
+For this lab, you've just been onboarded to the dev team working on Axibook,
+the world's premier Academy Xi-based social network. At the moment, the
 view that our users see upon logging in is pretty generic. We'd like to improve
 the user experience by adding some custom greeting capabilities.
 
@@ -39,7 +39,7 @@ Rerun the tests and you should see that the first one is passing.
 #### `welcomeMessage`
 
 The next failing test is similarly helpful, telling us exactly what we have to
-fix: `welcomeMessage contains "Welcome to Flatbook, "`.
+fix: `welcomeMessage contains "Welcome to Axibook, "`.
 
 Let's return to `index.js` and define our second variable below where we
 declared `currentUser`:
@@ -47,14 +47,14 @@ declared `currentUser`:
 ```js
 const currentUser = 'Grace Hopper';
 
-const welcomeMessage = 'Welcome to Flatbook, ';
+const welcomeMessage = 'Welcome to Axibook, ';
 ```
 
 Rerun the tests; you should see a second passing test.
 
 The third test tells us that `welcomeMessage` should contain the value stored in
 `currentUser`. This seems like it might contradict the second test a bit, but
-let's try it out. Let's erase `'Welcome to Flatbook, '` and set `welcomeMessage`
+let's try it out. Let's erase `'Welcome to Axibook, '` and set `welcomeMessage`
 equal to `currentUser` instead:
 
 ```js
@@ -68,13 +68,13 @@ tests are passing instead of the first and second! That doesn't seem quite
 right.
 
 It turns out that the tests want `welcomeMessage` to include _both_ `'Welcome to
-Flatbook, '` and the value stored in `currentUser`. Maybe we can include both of
+Axibook, '` and the value stored in `currentUser`. Maybe we can include both of
 them in a single string?
 
 ```js
 const currentUser = 'Grace Hopper';
 
-const welcomeMessage = 'Welcome to Flatbook, currentUser';
+const welcomeMessage = 'Welcome to Axibook, currentUser';
 ```
 
 If we rerun the tests, we're once again passing the second test, but we're back
@@ -82,7 +82,7 @@ to failing the third test. The new error message for the third test gives us a
 hint about what's happening:
 
 ```js
-AssertionError: expected 'Welcome to Flatbook, currentUser' to contain 'Grace Hopper'
+AssertionError: expected 'Welcome to Axibook, currentUser' to contain 'Grace Hopper'
 ```
 
 When JavaScript is expecting a variable to contain one thing, and it does not,
@@ -115,7 +115,7 @@ As demonstrated by the last line in that snippet, because we turned our code
 into a string it no longer functions as JavaScript code for declaring and
 assigning a `currentUser` variable.
 
-Since we want `welcomeMessage` to contain both `'Welcome to Flatbook, '` and the
+Since we want `welcomeMessage` to contain both `'Welcome to Axibook, '` and the
 value stored in `currentUser`, we have two options: **concatenation** and
 **interpolation**.
 
@@ -134,13 +134,13 @@ JavaScript is with the `+` operator, like so:
 ```
 
 Since our `currentUser` variable contains a string, we can concatenate it to the
-end of `'Welcome to Flatbook, '` to dynamically create a new string based on
+end of `'Welcome to Axibook, '` to dynamically create a new string based on
 whatever value `currentUser` contains at a given moment:
 
 ```js
 const currentUser = 'Grace Hopper';
 
-const welcomeMessage = 'Welcome to Flatbook, ' + currentUser;
+const welcomeMessage = 'Welcome to Axibook, ' + currentUser;
 ```
 
 If we run the test suite with our updated code, we'll see both the second and
@@ -192,7 +192,7 @@ Let's rewrite our `welcomeMessage` to use a template literal:
 ```js
 const currentUser = 'Grace Hopper';
 
-const welcomeMessage = `Welcome to Flatbook, ${currentUser}`;
+const welcomeMessage = `Welcome to Axibook, ${currentUser}`;
 ```
 
 The first three tests are still passing, but the fourth wants our
@@ -202,7 +202,7 @@ adding a `!` as the last character in the template literal:
 ```js
 const currentUser = 'Grace Hopper';
 
-const welcomeMessage = `Welcome to Flatbook, ${currentUser}!`;
+const welcomeMessage = `Welcome to Axibook, ${currentUser}!`;
 ```
 
 Four tests down, six to go!
@@ -211,7 +211,7 @@ Four tests down, six to go!
 
 #### `excitedWelcomeMessage`
 
-Sometimes we get so excited when someone logs into their Flatbook account that
+Sometimes we get so excited when someone logs into their Axibook account that
 we just want to shout out loud. We *could* copy over most of the code from
 `welcomeMessage` and then change every character to its uppercase equivalent,
 but as developers we try not to repeat ourselves. Instead, let's use the
@@ -220,7 +220,7 @@ but as developers we try not to repeat ourselves. Instead, let's use the
 ```js
 const currentUser = 'Grace Hopper';
 
-const welcomeMessage = `Welcome to Flatbook, ${currentUser}!`;
+const welcomeMessage = `Welcome to Axibook, ${currentUser}!`;
 
 const excitedWelcomeMessage = welcomeMessage.toUpperCase();
 ```
@@ -238,7 +238,7 @@ Rerun the tests; you should see the first seven tests passing. Woohoo!
 
 #### `shortGreeting`
 
-The mobile team at Flatbook is busy redesigning the site for smaller devices,
+The mobile team at Axibook is busy redesigning the site for smaller devices,
 and they're a bit concerned about how much real estate the `welcomeMessage`
 takes up on the screen. They want us to create a shorter version that truncates
 the `currentUser`'s name into just their first initial.
